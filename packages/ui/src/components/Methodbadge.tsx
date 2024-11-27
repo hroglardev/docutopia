@@ -1,47 +1,23 @@
 import { Badge, Stack } from "@chakra-ui/react";
+import { useToken } from "@chakra-ui/react";
 
 interface props {
   method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE";
 }
 
 const MethodBadge = ({ method }: props) => {
-  const methodStyles = {
-    GET: {
-      bg: "primary-color-method-get",
-      textShadow: `
-        0.0625rem 0.0625rem 0 var(--secondary-color-method-get),
-        0 0.0625rem 0 var(--secondary-color-method-get),
-        0.0625rem 0 0 var(--secondary-color-method-get)`,
-    },
-    POST: {
-      bg: "primary-color-method-post",
-      textShadow: `
-        0.0625rem 0.0625rem 0 var(--secondary-color-method-post),
-        0 0.0625rem 0 var(--secondary-color-method-post),
-        0.0625rem 0 0 var(--secondary-color-method-post)`,
-    },
-    DELETE: {
-      bg: "primary-color-method-delete",
-      textShadow: `
-        0.0625rem 0.0625rem 0 var(--secondary-color-method-delete),
-        0 0.0625rem 0 var(--secondary-color-method-delete),
-        0.0625rem 0 0 var(--secondary-color-method-delete)`,
-    },
-    PUT: {
-      bg: "primary-color-method-put",
-      textShadow: `
-        0.0625rem 0.0625rem 0 var(--secondary-color-method-put),
-        0 0.0625rem 0 var(--secondary-color-method-put),
-        0.0625rem 0 0 var(--secondary-color-method-put)`,
-    },
-    PATCH: {
-      bg: "primary-color-method-patch",
-      textShadow: `
-        0.0625rem 0.0625rem 0 var(--secondary-color-method-patch),
-        0 0.0625rem 0 var(--secondary-color-method-patch),
-        0.0625rem 0 0 var(--secondary-color-method-patch)`,
-    },
-  };
+  
+
+  const [secColor50, secColor600, secColor500] = useToken("colors", [
+    "secondary-color-50",
+    "secondary-color-600",
+    "secondary-color-500",
+  ]);
+  const [methodColor, methodShadow] = useToken("colors", [
+    `primary-color-method-${method.toLowerCase()}`,
+    `secondary-color-method-${method.toLowerCase()}`,
+  ]);
+  
 
   return (
     <Stack align="flex-start">
@@ -55,12 +31,15 @@ const MethodBadge = ({ method }: props) => {
         fontSize="xxs"
         roundedLeft={100}
         roundedRight={100}
-        boxShadow={`
-          inset 0 0.0625rem 0.0625rem 0 secondary-color-50,
-          inset 0 -0.0625rem 0.125rem 0 secondary-color-600,
-          0 0.0625rem 0.125rem 0 secondary-color-500`}
+        justifyContent={"center"}
+        boxShadow={`inset 0 0.0625rem 0.0625rem 0 ${secColor50}, 
+        inset 0 -0.0625rem 0.125rem 0 ${secColor600}, 
+        0 0.0625rem 0.125rem 0 ${secColor500}`}
         fontWeight="semiBold"
-        {...methodStyles[method]}
+        bg={methodColor}
+        textShadow={`0.0625rem 0.0625rem 0 ${methodShadow}, 
+                     0 0.0625rem 0 ${methodShadow}, 
+                     0.0625rem 0 0 ${methodShadow}`}
       >
         {method}
       </Badge>

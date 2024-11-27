@@ -1,14 +1,14 @@
 
 import "./App.css";
 import Sidebar from "./components/Sidebar";
-
+import { Box } from "@chakra-ui/react";
 function App() {
 
 
 	return (
-	<div style={{"background" : "gray"}}>
+	<Box px={"2rem"} bg={"primary-background-color"}>
 		<Sidebar />
-	</div>
+	</Box>
 	);
 }
 
