@@ -47,7 +47,7 @@ import SidebarItem from "./SidebarItem"
     
       
     return (
-      <AccordionRoot bg={"black"} maxW={"10rem"} collapsible defaultValue={["b"]}>
+      <AccordionRoot bg={""} maxW={"10rem"} collapsible defaultValue={["b"]}>
         {items.map((item, index) => (
          <SidebarItem key={`${index + item.title}`} value={item.value} options={item.options} title={item.title} />
         ))}
