@@ -1,29 +1,31 @@
 {
-	"name": "@docutopia/ui",
-	"description": "",
-	"version": "0.1.0",
-	"author": "Christian Llontop",
-	"license": "MIT",
-	"keywords": [],
-	"type": "module",
-	"scripts": {
-		"dev": "rspack --watch",
-		"build": "rspack build",
-		"svelte-check": "svelte-check --tsconfig ./tsconfig.json",
-		"lint": "biome format",
-		"lint:fix": "biome format --write"
-	},
-	"files": ["dist/"],
-	"devDependencies": {
-		"@biomejs/biome": "catalog:",
-		"@rspack/cli": "catalog:",
-		"@rspack/core": "catalog:",
-		"serve": "^14.2.3",
-		"svelte": "^4.2.18",
-		"svelte-check": "^3.8.6",
-		"svelte-loader": "^3.2.3",
-		"svelte-preprocess": "^6.0.2",
-		"ts-loader": "catalog:",
-		"typescript": "catalog:"
-	}
+  "name": "@docutopia/ui",
+  "description": "",
+  "version": "0.1.0",
+  "author": "Christian Llontop",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rspack serve",
+    "build": "cross-env NODE_ENV=production rspack build"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.2.1",
+    "@emotion/react": "^11.13.5",
+    "next-themes": "^0.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.1.4",
+    "@rspack/core": "^1.1.4",
+    "@rspack/plugin-react-refresh": "1.0.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
 }
