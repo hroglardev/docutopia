@@ -3,9 +3,9 @@
 
   import {
     AccordionRoot,
-    Button} from "@chakra-ui/react"
+    Button, useBreakpointValue} from "@chakra-ui/react"
 import SidebarItem from "./SidebarItem"
-import { useState } from "react";
+import { useState, useEffect } from "react";
   
   const Sidebar = () => {
     
@@ -236,12 +236,20 @@ import { useState } from "react";
     
 
     const [isOpen, setIsOpen] = useState(false)
+    const [isReady, setIsReady] = useState(false);
     const [selected, setIsSelected] = useState(items[0].options[0].text) 
 
-    console.log(selected, "PEPE")
+    const isLargeScreen = useBreakpointValue({ base: false, md: true });
+
+    useEffect(() => {
+      setIsOpen(isLargeScreen!);
+      setIsReady(true);
+    }, [isLargeScreen]);
+
+  if (!isReady) return null;
     return (
       <>
-      <Button justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"4px"} border={"1px solid"} color={"black"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
+      <Button display={{md: "none"}} mb={"1rem"} variant={"surface"} justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"4px"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
       <AccordionRoot pr={"0.25rem"} fontSize={"xm"} transition={"all 0.3s ease-in-out"} transformOrigin={"top left"} opacity={isOpen ? 1 : 0} scale={isOpen ? 1 : 0} overflowY={"auto"} as={"ul"}  w={{base: "sidebar-width-mobile", lg: "sidebar-width-desktop"}} h={"100dvh"} collapsible defaultValue={["a"]}>    
         {items.map((item, index) => (
          <SidebarItem key={`${index + item.title}`} value={item.value} options={item.options} title={item.title} selected={selected} onSelect={setIsSelected} />
