@@ -56,7 +56,8 @@ export const system = createSystem(defaultConfig, {
         "primary-text": { value: "#121212" },
         "primary-background-color": { value: "{color-base-white}" }, 
         "secondary-background-color": { value: "{color-base-white}" },
-        "sidebar-item-selected-color": { value: "{primary-color-100}" },
+        "sidebar-item-selected-color": { value: "rgba(1, 142, 245, 0.09)" },
+        "sidebar-text-selected-color": {value: "#017fdc"},
         "card-box-shadow": { value: "inset 0 0.0625rem 0.0625rem {tertiary-color-500}" },
 
         "input-background-color": { value: "{color-base-white}" },

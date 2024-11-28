@@ -30,7 +30,7 @@ import { useState } from "react"
         {options.map((option, index) => {
           return (
           
-            <Flex mb={"5px"} _hover={{"backgroundColor": "primary-color-200"}} bg={selected === option.text ? "primary-color-200" : undefined} onClick={() => onSelect(option.text)} rounded={"6px"} cursor={"pointer"} p={"0.2rem 1rem"} justifyContent={"space-between"} alignItems={"center"} key={`${index+ option.text}`}>
+            <Flex mb={"5px"} color={selected === option.text ? "sidebar-text-selected-color" : undefined} _hover={{"backgroundColor": "primary-color-200"}} bg={selected === option.text ? "sidebar-item-selected-color" : undefined} onClick={() => onSelect(option.text)} rounded={"6px"} cursor={"pointer"} p={"0.2rem 1rem"} justifyContent={"space-between"} alignItems={"center"} key={`${index+ option.text}`}>
               <h3>{option.text}</h3>
               <MethodBadge method={option.method} />
             </Flex>
