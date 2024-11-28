@@ -241,7 +241,7 @@ import { useState } from "react";
     console.log(selected, "PEPE")
     return (
       <>
-      <Button justifyContent={"start"} w={"full"} bg={"red"} color={"black"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
+      <Button justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"4px"} border={"1px solid"} color={"black"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
       <AccordionRoot pr={"0.25rem"} fontSize={"xm"} transition={"all 0.3s ease-in-out"} transformOrigin={"top left"} opacity={isOpen ? 1 : 0} scale={isOpen ? 1 : 0} overflowY={"auto"} as={"ul"}  w={{base: "sidebar-width-mobile", lg: "sidebar-width-desktop"}} h={"100dvh"} collapsible defaultValue={["a"]}>    
         {items.map((item, index) => (
          <SidebarItem key={`${index + item.title}`} value={item.value} options={item.options} title={item.title} selected={selected} onSelect={setIsSelected} />
