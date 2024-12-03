@@ -1,10 +1,13 @@
-import { Box, Image, Text, Flex } from "@chakra-ui/react"
+import { Box, Image, Text, Flex, Button, Separator } from "@chakra-ui/react"
 
 interface props {
     criteria: string[]
+    defaultValue?: string
 }
 
-const ValidationModal = ({criteria}: props) => {
+
+// TODO => Add default  / example change option to the input
+const ValidationModal = ({criteria, defaultValue}: props) => {
   return (
     <Box position={"absolute"} mt={"0.5rem"} bg={"red"} p={"1rem"} rounded={"8px"}>
         {criteria.map((criterion, index) => {
@@ -17,6 +20,10 @@ const ValidationModal = ({criteria}: props) => {
                 </Flex>
             )
         })}
+        {defaultValue && <>
+                            <Separator mt={"1rem"} /> 
+                            <Button variant={"plain"}>Use default value</Button>
+                         </>}
     </Box>
   )
 }

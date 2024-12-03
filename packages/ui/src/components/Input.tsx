@@ -11,6 +11,8 @@ interface props {
 }
 
 
+//TODO ADD BODYPARAMS, METADATA DONE.
+
 const InputField = ({label="uuid", type="string", isRequired = false, inputType}: props) => {
 
 
@@ -38,10 +40,7 @@ const InputField = ({label="uuid", type="string", isRequired = false, inputType}
   )
 }
 
-interface TextInputProps {
-    
-    value: string | number
-}
+
 
 
 // FOR GET REQUESTS. 
@@ -50,7 +49,7 @@ const TextInput = () => {
     return (
         <Box position={"relative"}>
             <Input onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)} bg={"color-base-white"} border={"1px solid input-border-color"} minW={"140px"} w={"100%"}></Input>
-            {isFocused && <ValidationModal criteria={["primer validator", "segundo validator"]}/>}
+            {isFocused && <ValidationModal criteria={["primer validator", "segundo validator"]} defaultValue="Hola"/>}
         </Box>
         
         
