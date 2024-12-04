@@ -1,11 +1,11 @@
 import { Badge, Stack } from "@chakra-ui/react";
 import { useToken } from "@chakra-ui/react";
 
-interface props {
+interface Props {
   method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE";
 }
 
-const MethodBadge = ({ method }: props) => {
+const MethodBadge = ({ method }: Props) => {
   
 
   const [secColor50, secColor600, secColor500] = useToken("colors", [

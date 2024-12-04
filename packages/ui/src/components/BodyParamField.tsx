@@ -7,7 +7,7 @@ export interface BodyParamFieldProps {
   defaultValue?: string
   description: string
   isRequired?: boolean
-  inputType: "text" | "select" | "object" | "array"
+  inputType: "text" | "select" | "object" | "object array" | "string array"
   objectValues?: BodyParamFieldProps[]
   selectOptions?: string[]
 }
@@ -15,8 +15,7 @@ export interface BodyParamFieldProps {
 const BodyParamField = ({name, type, defaultValue, description, isRequired, inputType, objectValues = [], selectOptions = []}: BodyParamFieldProps) => {
   
   return (
-    <Flex md={{justifyContent:"space-between"}} mt={{base:"5px", md: "0"}} flexDir={{base: "column", md: "row"}} p={"10px"} borderBottom={"border-body-param"}>
-          {/* Esto es el div de la description */}
+    <Flex md={{justifyContent:"space-between"}} mt={{base:"5px", md: "0"}} flexDir={type !== "object" && type !== "array" ? {base: "column", md: "row"} : "column"} p={"10px"} borderBottom={"border-body-param"}>
         <Box>
           <Flex gap={"5px"} alignItems={"center"}>
             <Text color={"font-default"} fontSize={"m"} fontWeight={"semiBold"}>{name}</Text>
@@ -28,8 +27,7 @@ const BodyParamField = ({name, type, defaultValue, description, isRequired, inpu
             <Text fontSize={"s"}>{description}</Text>
           </Box>
         </Box>
-        {/* Este es el div del input */}
-        <Box md={{maxW: "140px"}}>
+        <Box maxW={type !== "object" && type !== "array" ? {md: "140px"} : "100%"}>
             <Inputs inputType={inputType} objectValues={objectValues} selectOptions={selectOptions}/>
         </Box>  
     </Flex>

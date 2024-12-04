@@ -244,7 +244,7 @@ import mock from "../mock/mock.json"
 
   if (!isReady) return null;
     return (
-      <Box as={"nav"} p={"5px"} w={"sidebar-width-desktop"}>
+      <Box as={"nav"} p={"5px"} pl={{lg: "50px"}} w={"sidebar-width-desktop"}>
         <Button display={{md: "none"}} mb={"1rem"} variant={"surface"} justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"default"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
         <AccordionRoot  transition={"all 0.3s ease-in-out"} transformOrigin={"top left"} opacity={isOpen ? 1 : 0} scale={isOpen ? 1 : 0} overflowY={"auto"} as={"ul"} h={"100dvh"} collapsible defaultValue={["a"]}>    
           {items.map((item, index) => (

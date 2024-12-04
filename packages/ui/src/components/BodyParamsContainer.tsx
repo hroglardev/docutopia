@@ -72,6 +72,20 @@ const stuff: BodyParamFieldProps[] = [
               description: "The country where the user resides."
           }
       ]
+  },
+  {
+    name: "phone",
+    type: "array",
+    isRequired: false,
+    inputType: "string array",
+    description: "The phone number of the user, optional for contact purposes."
+  },
+  {
+    name: "email",
+    type: "array",
+    isRequired: true,
+    inputType: "object array",
+    description: "Test array of strings"
   }
 ];
 
@@ -82,6 +96,7 @@ const BodyParamsContainer = () => {
         {stuff.map((bodyParam, index) => {
             return (
                 <BodyParamField description={bodyParam.description} key={`${index}${bodyParam.name}`} name={bodyParam.name} type={bodyParam.type} isRequired={bodyParam.isRequired} inputType={bodyParam.inputType} objectValues={bodyParam.objectValues} selectOptions={bodyParam.selectOptions} />
+            
             )
         })}
     </Box>
