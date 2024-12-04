@@ -1,15 +1,15 @@
 import { Box, Image, Text, Flex, Button, Separator } from "@chakra-ui/react"
 
-interface props {
+interface ValidationModalProps {
     criteria: string[]
     defaultValue?: string
 }
 
 
 // TODO => Add default  / example change option to the input
-const ValidationModal = ({criteria, defaultValue}: props) => {
+const ValidationModal = ({criteria, defaultValue}: ValidationModalProps) => {
   return (
-    <Box position={"absolute"} mt={"0.5rem"} bg={"red"} p={"1rem"} rounded={"8px"}>
+    <Box zIndex={"100"} position={"absolute"} mt={"0.5rem"} border={"border-input"} bg={"white"} py={"1rem 0"} px={"1rem"} rounded={"8px"}>
         {criteria.map((criterion, index) => {
             return (
                 <Flex key={`${criterion + index}`} alignContent={"center"}>

@@ -1,12 +1,7 @@
-
-  
-
-  import {
-    AccordionRoot,
-    Box,
-    Button, useBreakpointValue} from "@chakra-ui/react"
+import { AccordionRoot, Box, Button, useBreakpointValue} from "@chakra-ui/react"
 import SidebarItem from "./SidebarItem"
 import { useState, useEffect } from "react";
+import mock from "../mock/mock.json"
   
   const Sidebar = () => {
     
@@ -249,13 +244,13 @@ import { useState, useEffect } from "react";
 
   if (!isReady) return null;
     return (
-      <Box bg={"red"} w={"fit"}>
-      <Button display={{md: "none"}} mb={"1rem"} variant={"surface"} justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"4px"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
-      <AccordionRoot pr={"0.25rem"} fontSize={"xm"} transition={"all 0.3s ease-in-out"} transformOrigin={"top left"} opacity={isOpen ? 1 : 0} scale={isOpen ? 1 : 0} overflowY={"auto"} as={"ul"}  w={{base: "sidebar-width-mobile", lg: "sidebar-width-desktop"}} h={"100dvh"} collapsible defaultValue={["a"]}>    
-        {items.map((item, index) => (
-         <SidebarItem key={`${index + item.title}`} value={item.value} options={item.options} title={item.title} selected={selected} onSelect={setIsSelected} />
-        ))}
-      </AccordionRoot>
+      <Box as={"nav"} p={"5px"} w={"sidebar-width-desktop"}>
+        <Button display={{md: "none"}} mb={"1rem"} variant={"surface"} justifyContent={"start"} w={"full"} bg={"transparent"} rounded={"default"} onClick={() => setIsOpen(!isOpen)}>{selected}</Button>
+        <AccordionRoot  transition={"all 0.3s ease-in-out"} transformOrigin={"top left"} opacity={isOpen ? 1 : 0} scale={isOpen ? 1 : 0} overflowY={"auto"} as={"ul"} h={"100dvh"} collapsible defaultValue={["a"]}>    
+          {items.map((item, index) => (
+          <SidebarItem key={`${index + item.title}`} value={item.value} options={item.options} title={item.title} selected={selected} onSelect={setIsSelected} />
+          ))}
+        </AccordionRoot>
       </Box>
     )
   }

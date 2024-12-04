@@ -9,21 +9,45 @@ export const system = createSystem(defaultConfig, {
             },
           },
         sizes: {
-            "sidebar-width-desktop": { value: "17.5rem" },
-            "sidebar-width-mobile": { value: "20.81rem" },
+            "sidebar-width-desktop": { value: "280px" },
+            "sidebar-width-mobile": { value: "333px" },
             "param-form-width": { value: "8.75rem" },
           },
-          fontWeights: {
+        radii: {
+          "default": { value: "5px"},
+          "lg": {value: "calc(5px * 1.5)"}
+        },
+
+        borders: {
+          "border-body-param": { value: "1px solid rgba(0, 0, 0, 0.1)"},
+          "border-input": { value: "1px solid #e5e5e5"},
+          "border-input-hover": { value: "1px solid #ccc"},
+          "border-input-focus-pass": {value: "#018ef5"},
+          "border-input-focus-fail": {value: "#e95f6a"}
+        },
+        fontWeights: {
+            light: {value: "400"},
             medium: { value: "500" },
             semiBold: { value: "600" },
             bold: { value: "700" },
-          },
-          fontSizes: {
-            xxs: { value: "0.5rem" },
-            xs: { value: "0.75rem" },
-            s: { value: "0.81rem" },
-            xm: { value: "0.875rem" },
-          },
+        },
+        lineHeights: {
+            light: {value: "1.2"},
+            medium: {value: "12px"},
+            tall: {value: "1.5"}
+        },
+        fontSizes: {
+            "xxs": {value: "8px"},
+            "xs": {value: "12px"},
+            "s": {value: "13px"},
+            "m": {value: "14px"},
+            "l": {value: "1em"},
+            "xl": {value: "1.9em"}
+        },
+        shadows: {
+          "shadow-input-focus-fail": {value: "0 0 0 3px rgba(233, 95, 100, .4)"},
+          "shadow-input-focus-pass": {value: "0 0 0 3px rgba(1, 142, 245, 0.25)"},
+        },
         colors: {
         "primary-color-100": {value: "#422c96"},
         "primary-color-200": { value: "rgba(75, 50, 170, 0.09)" },
@@ -64,20 +88,7 @@ export const system = createSystem(defaultConfig, {
         "input-border-color": { value: "{tertiary-color-100}" },
         "input-hover-border-color": { value: "#ccc" },
 
-        "primary-color-method-get": { value: "#0e9b71" },
-        "secondary-color-method-get": { value: "#0d8d67" },
-
-        "primary-color-method-post": { value: "#0171c2" },
-        "secondary-color-method-post": { value: "#0168b3" },
-
-        "primary-color-method-delete": { value: "{danger-color-400}" },
-        "secondary-color-method-delete": { value: "{danger-color-500}" },
-
-        "primary-color-method-put": { value: "#674ead" },
-        "secondary-color-method-put": { value: "#604aa2" },
-
-        "primary-color-method-patch": { value: "#df7d03" },
-        "secondary-color-method-patch": { value: "#d07503" },
+  
 
         "required-color": { value: "{danger-color-300}" },
         
@@ -136,6 +147,27 @@ export const system = createSystem(defaultConfig, {
         "secondary-color-method-patch-dark": { value: "#d07503" },
 
         "required-color-dark": { value: "{danger-color-dark-100}" },
+
+        // FONT COLORS
+        "font-default": {value: "#384248"},
+        "font-minimum": {value: "#637288"},
+        "font-required": {value: "#dd1e2e"},
+        "font-sidebar-selected": {value: "#017fdc"},
+        "font-something": {value: "4f5a66"},
+        
+        // BGs
+        "bg-body-param": {value: "#f8f8f8"},
+        "bg-sidebar-selected": {value: "rgba(1, 142, 245, 0.09)"},
+        "primary-color-method-get": { value: "#0e9b71" },
+        "secondary-color-method-get": { value: "#0d8d67" },
+        "primary-color-method-post": { value: "#0171c2" },
+        "secondary-color-method-post": { value: "#0168b3" },
+        "primary-color-method-delete": { value: "{danger-color-400}" },
+        "secondary-color-method-delete": { value: "{danger-color-500}" },
+        "primary-color-method-put": { value: "#674ead" },
+        "secondary-color-method-put": { value: "#604aa2" },
+        "primary-color-method-patch": { value: "#df7d03" },
+        "secondary-color-method-patch": { value: "#d07503" },
       }
     },
   },

@@ -1,7 +1,7 @@
 import {
     AccordionItem,
     AccordionItemContent,
-    AccordionItemTrigger, Flex,
+    AccordionItemTrigger, Flex, Text
     } from "@chakra-ui/react"
 import MethodBadge from "./Methodbadge"
 import { useState } from "react"
@@ -24,14 +24,14 @@ import { useState } from "react"
   const SidebarItem = ({value, title, options, selected, onSelect}:Props) => {
     
     return (
-      <AccordionItem  as={"li"} border={"none"} value={value}>
-       <AccordionItemTrigger mb={"5px"} p={"0.5rem"} _hover={{"backgroundColor": "primary-color-200"}} onClick={() => onSelect(options[0].text)} cursor={"pointer"}>{title}</AccordionItemTrigger>
+      <AccordionItem color={"font-default"} fontSize={"m"} as={"li"} border={"none"} value={value}>
+       <AccordionItemTrigger p={0} fontSize={"m"} mb={"5px"}  _hover={{"backgroundColor": "bg-body-param"}} onClick={() => onSelect(options[0].text)} cursor={"pointer"}>{title}</AccordionItemTrigger>
        <AccordionItemContent>
         {options.map((option, index) => {
           return (
           
-            <Flex mb={"5px"} color={selected  === option.text ? "sidebar-text-selected-color" : undefined} _hover={{"backgroundColor": "primary-color-200"}} bg={selected === option.text ? "sidebar-item-selected-color" : undefined} onClick={() => onSelect(option.text)} rounded={"6px"} cursor={"pointer"} p={"0.2rem 1rem"} justifyContent={"space-between"} alignItems={"center"} key={`${index+ option.text}`}>
-              <h3>{option.text}</h3>
+            <Flex mb={"5px"} color={selected  === option.text ? "font-sidebar-selected" : "font-default"} _hover={{"backgroundColor": "bg-body-param"}} bg={selected === option.text ? "sidebar-item-selected-color" : undefined} onClick={() => onSelect(option.text)} rounded={"default"} cursor={"pointer"} p={"3px 5px 3px 15px"} justifyContent={"space-between"} alignItems={"center"} key={`${index+ option.text}`}>
+              <Text>{option.text}</Text>
               <MethodBadge method={option.method} />
             </Flex>
             
