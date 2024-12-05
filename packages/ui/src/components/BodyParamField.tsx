@@ -15,7 +15,7 @@ export interface BodyParamFieldProps {
 const BodyParamField = ({name, type, defaultValue, description, isRequired, inputType, objectValues = [], selectOptions = []}: BodyParamFieldProps) => {
   
   return (
-    <Flex md={{justifyContent:"space-between"}} mt={{base:"5px", md: "0"}} flexDir={type !== "object" && type !== "array" ? {base: "column", md: "row"} : "column"} p={"10px"} borderBottom={"border-body-param"}>
+    <Flex md={{justifyContent:"space-between"}} mt={{base:"5px", md: "0"}} flexDir={type !== "object" && type !== "array" ? {base: "column", md: "row"} : "column"} p={"10px"}>
         <Box>
           <Flex gap={"5px"} alignItems={"center"}>
             <Text color={"font-default"} fontSize={"m"} fontWeight={"semiBold"}>{name}</Text>

@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { ColorModeButton } from "./components/ui/color-mode";
 import BodyParamsContainer from "./components/BodyParamsContainer";
+import ResponseContainer from "./components/ResponseContainer";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
 			<BodyParamsContainer />
 		</GridItem>
 	    <GridItem>
-			{/* RESPONSES */}
+			<ResponseContainer />
 		</GridItem>		
 	</Grid>
 	</>

@@ -186,7 +186,7 @@ const AddItem = ({addItem, item}: AddItemProps) => {
 
 const BodyParamArrayItem = ({type, header, deleteItem}: BodyParamArrayItemProps) => {
     return (
-        <Box bg={"white"} border={"border-input"} rounded={"lg"} px={"10px"}>
+    <Box bg={"white"} border={"border-input"} rounded={"lg"} px={"10px"}>
         <AccordionRoot collapsible>
             <AccordionItem  value="hola">
                  <AccordionItemTrigger display={"flex"} justifyContent={"space-between"} h={"30px"}>

@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Separator } from "@chakra-ui/react"
 import BodyParamField, { BodyParamFieldProps } from "./BodyParamField"
 
 const stuff: BodyParamFieldProps[] = [
@@ -92,11 +92,13 @@ const stuff: BodyParamFieldProps[] = [
 
 const BodyParamsContainer = () => {
   return (
-    <Box bg={"bg-body-param"} border={"border-body-param"} borderBottom={"none"} rounded={"lg"}>
+    <Box bg={"bg-body-param"} border={"border-body-param"} rounded={"lg"}>
         {stuff.map((bodyParam, index) => {
             return (
-                <BodyParamField description={bodyParam.description} key={`${index}${bodyParam.name}`} name={bodyParam.name} type={bodyParam.type} isRequired={bodyParam.isRequired} inputType={bodyParam.inputType} objectValues={bodyParam.objectValues} selectOptions={bodyParam.selectOptions} />
-            
+                <>
+                    <BodyParamField description={bodyParam.description} key={`${index}${bodyParam.name}`} name={bodyParam.name} type={bodyParam.type} isRequired={bodyParam.isRequired} inputType={bodyParam.inputType} objectValues={bodyParam.objectValues} selectOptions={bodyParam.selectOptions} />
+                    {index + 1 < stuff.length && <Separator />}
+                </>
             )
         })}
     </Box>

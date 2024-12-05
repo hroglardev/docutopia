@@ -47,6 +47,7 @@ export const system = createSystem(defaultConfig, {
         shadows: {
           "shadow-input-focus-fail": {value: "0 0 0 3px rgba(233, 95, 100, .4)"},
           "shadow-input-focus-pass": {value: "0 0 0 3px rgba(1, 142, 245, 0.25)"},
+          "shadow-code-status": {value: "inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 2px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .1)"}
         },
         colors: {
         "primary-color-100": {value: "#422c96"},
@@ -168,6 +169,9 @@ export const system = createSystem(defaultConfig, {
         "secondary-color-method-put": { value: "#604aa2" },
         "primary-color-method-patch": { value: "#df7d03" },
         "secondary-color-method-patch": { value: "#d07503" },
+        "code-status-green": {value: "#12ca93"},
+        "code-status-red": {value: "#e95f6a"},
+        "code-status-orange": {value: "#f7c543"}
       }
     },
   },
