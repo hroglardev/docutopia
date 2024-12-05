@@ -9,7 +9,7 @@ interface ValidationModalProps {
 // TODO => Add default  / example change option to the input
 const ValidationModal = ({criteria, defaultValue}: ValidationModalProps) => {
   return (
-    <Box zIndex={"100"} position={"absolute"} mt={"0.5rem"} border={"border-input"} bg={"white"} py={"1rem 0"} px={"1rem"} rounded={"8px"}>
+    <Box zIndex={"100"} position={"absolute"}  border={"border-input"} bg={"white"} py={"1rem 0"} px={"1rem"} rounded={"8px"}>
         {criteria.map((criterion, index) => {
             return (
                 <Flex key={`${criterion + index}`} alignContent={"center"}>
@@ -20,10 +20,11 @@ const ValidationModal = ({criteria, defaultValue}: ValidationModalProps) => {
                 </Flex>
             )
         })}
-        {defaultValue && <>
+        {defaultValue && 
+                        <>
                             <Separator mt={"1rem"} /> 
                             <Button variant={"plain"}>Use default value</Button>
-                         </>}
+                        </>}
     </Box>
   )
 }

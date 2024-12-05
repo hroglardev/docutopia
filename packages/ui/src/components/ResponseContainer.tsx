@@ -1,5 +1,5 @@
 import {Box, Separator} from "@chakra-ui/react"
-import ResponseField, { ResponseFieldProps } from "./ResponseField";
+import { ResponseField, ResponseFieldAccordion, ResponseFieldProps } from "./ResponseField";
 
 const responses: ResponseFieldProps[] = [
     
@@ -17,8 +17,17 @@ const ResponseContainer = () => {
         {responses.map((response, index) => {
           return (
             <>
-            <ResponseField code={response.code} description={response.description} />
-            {index + 1 < responses.length && <Separator />}
+              <ResponseField code={response.code} description={response.description} />
+              {index + 1 < responses.length && <Separator />}
+            </>
+          )
+        })}
+        <Box height={"100px"}></Box>
+        {responses.map((response, index) => {
+          return (
+            <>
+              <ResponseFieldAccordion code={response.code} description={response.description} /> 
+              {index + 1 < responses.length && <Separator />}
             </>
           )
         })}

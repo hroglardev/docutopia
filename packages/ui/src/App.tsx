@@ -21,7 +21,7 @@ function App() {
 		<GridItem bg={""} p={"1rem"} colStart={2} colEnd={3} rowSpan={1}>
 			<BodyParamsContainer />
 		</GridItem>
-	    <GridItem>
+	    <GridItem p={"1rem"} colStart={2} colEnd={3} rowStart={3} rowEnd={4}>
 			<ResponseContainer />
 		</GridItem>		
 	</Grid>

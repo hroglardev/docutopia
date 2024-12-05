@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Flex, Text, Box, Input,NativeSelectRoot, NativeSelectField, AccordionRoot, AccordionItem, AccordionItemTrigger, AccordionItemContent, Button } from "@chakra-ui/react"
+import { Flex, Text, Box, Input,NativeSelectRoot, NativeSelectField, AccordionRoot, AccordionItem, AccordionItemTrigger, AccordionItemContent, Button, Separator } from "@chakra-ui/react"
 import ValidationModal from "./ValidationModal"
 import BodyParamField, { BodyParamFieldProps } from "./BodyParamField"
 import BodyParamsContainer from "./BodyParamsContainer"
@@ -42,15 +42,16 @@ interface BodyParamArrayItemProps {
 
 const Inputs = ({inputType, objectValues = [], selectOptions = []}: InputsProps ) => {
   return (
-    <>
+    <Box p={"10px"} w={"100%"}>
         {inputType === "text" ? 
         <TextInput /> :
         inputType === "select" ?
         <SelectInput value={"Hello"} options={selectOptions} /> :
-        inputType === "object" ? <ObjectInput objectValues={objectValues} /> :
+        inputType === "object" ? 
+        <ObjectInput objectValues={objectValues} /> :
         <ArrayInput arrayType={inputType} />
         }
-    </>
+    </Box>
   )
 }
 
@@ -66,11 +67,11 @@ const TextInput = () => {
     )
 }
 
-const SelectInput = ({value, options, width={base: "100%", md: "140px"}}: SelectInputProps) => {
+const SelectInput = ({value, options, width={ base: "100%", md: "140px"}}: SelectInputProps) => {
     const [isFocused, setIsFocused] = useState(false)
     return (
-      <NativeSelectRoot bg={"white"} w={width}>
-        <NativeSelectField placeholder={value} h={"30px"} onBlur={() => setIsFocused(false)}  _hover={{border: "border-input-hover"}} onFocus={() => setIsFocused(true)} w={"100%"} boxShadow={isFocused ? "shadow-input-focus-pass" : undefined} focusRingColor={"#018ef5"}>
+      <NativeSelectRoot bg={"white"} w={"100%"}>
+        <NativeSelectField placeholder={value} w={"100%"} h={"30px"} onBlur={() => setIsFocused(false)}  _hover={{border: "border-input-hover"}} onFocus={() => setIsFocused(true)} boxShadow={isFocused ? "shadow-input-focus-pass" : undefined} focusRingColor={"#018ef5"}>
             {options.map((option, index) => {
                 return (
                     <option key={`${option + index}`} value={option}>{option}</option>
@@ -85,14 +86,18 @@ const SelectInput = ({value, options, width={base: "100%", md: "140px"}}: Select
 
 const ObjectInput = ({objectValues = []}: ObjectInputProps) => {
     return (
-        <Box bg={"white"} mt={"1rem"} px={"10px"} rounded={"lg"} border={"border-input"}>
+        <Box bg={"white"} rounded={"lg"} border={"border-input"}>
             <AccordionRoot collapsible>
                     <AccordionItem border={"none"} value={objectValues[0].name}>
-                        <AccordionItemTrigger fontSize={"s"} h={"30px"}>ADDRESS OBJECT</AccordionItemTrigger>
+                        <AccordionItemTrigger fontSize={"s"} h={"30px"} px={"10px"} >ADDRESS OBJECT</AccordionItemTrigger>
                         <AccordionItemContent>
+                        <Separator />
                             {objectValues.map((objectValue, index) => {
                                 return (
-                                    <BodyParamField key={`${index}${objectValue}`} description={objectValue.description} name={objectValue.name} type={objectValue.type} isRequired={objectValue.isRequired} inputType={objectValue.inputType} objectValues={objectValue.objectValues} selectOptions={objectValue.selectOptions} />
+                                    <>
+                                        <BodyParamField key={`${index}${objectValue}`} description={objectValue.description} name={objectValue.name} type={objectValue.type} isRequired={objectValue.isRequired} inputType={objectValue.inputType} objectValues={objectValue.objectValues} selectOptions={objectValue.selectOptions} />
+                                        <Separator />
+                                    </>
                                 )
                             })}
                         </AccordionItemContent>
@@ -162,7 +167,7 @@ const ArrayInput = ({arrayType}: ArrayInputProps) => {
     }
 
     return (
-        <Flex flexDir={"column"} gap={2} mt={"1rem"}>
+        <Flex flexDir={"column"} gap={2}>
             {array?.length > 0 && array.map((item:ItemType, index:number) => {
                 return (
                     <>
